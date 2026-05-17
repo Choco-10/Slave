@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slave"
+version = "0.1.0"
+description = "Local agent that builds projects from natural language prompts"
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph",
+  "ollama",
+]
+
+[project.scripts]
+slave = "server.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["server*", "slave_agent*"]
